@@ -1,0 +1,60 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    int subNum;
+    char grade;
+    int sum =0;
+    int i;
+    bool Fail = false;
+    cout << "Enter the number of subjects: ";
+    cin >> subNum;
+    
+    string subName[subNum];
+    
+    cout << "Enter the names of subjects:- "<<endl;
+    
+    for (i=0; i<subNum; i++) {
+        cout << "subject-" <<i+1<<": ";
+        cin>> subName[i];
+    }
+    
+    cout << "Enter the grades of each subject (A, B, C, D, E, F):" << endl;
+    
+    for (i = 0; i < subNum; i++) {
+        cout << "Grade for " << subName[i] << ": ";
+        cin >> grade;
+        if (grade == 'A') {
+            sum += 10;
+        }
+        else if (grade == 'B') {
+            sum += 9;
+        } 
+        else if (grade == 'C') {
+            sum += 8;
+        } 
+        else if (grade == 'D') {
+            sum += 7;
+        } 
+        else if (grade == 'E') {
+            sum += 6;
+        }
+         
+        else if (grade == 'F') {   
+            Fail = true; 
+        }
+        else {
+            cout << "Invalid grade entered!" << endl;
+        }
+    }
+    
+    float average = sum / subNum;
+      if (!Fail) {
+        cout << "Your average is: " << average << endl;
+    } else       {
+        cout << "FAIL." << endl;
+    }
+ 
+return 0;
+}
